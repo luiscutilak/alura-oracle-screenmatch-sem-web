@@ -16,6 +16,13 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	<repositories>
+		<repository>
+			<id>clojars.org</id>
+			<url>https://repo.clojars.org</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -34,10 +41,12 @@
 			<version>2.15.2</version>
 		</dependency>
 		<dependency>
-			<groupId>com.theokanning.openai-gpt3-java</groupId>
-			<artifactId>service</artifactId>
-			<version>0.14.0</version>
+			<groupId>net.clojars.suuft</groupId>
+			<artifactId>libretranslate-java</artifactId>
+			<version>1.0.5</version>
 		</dependency>
+
+
 
 	</dependencies>
 
