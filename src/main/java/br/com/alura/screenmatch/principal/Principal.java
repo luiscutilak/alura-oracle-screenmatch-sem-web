@@ -1,14 +1,11 @@
 package br.com.alura.screenmatch.principal;
 
-import br.com.alura.screenmatch.model.DadosEpisodio;
 import br.com.alura.screenmatch.model.DadosSerie;
 import br.com.alura.screenmatch.model.DadosTemporada;
-import br.com.alura.screenmatch.module.Episodio;
+import br.com.alura.screenmatch.model.Serie;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -73,8 +70,13 @@ public class Principal {
 
     private void listarSeriesBuscadas() {
 
-        dadosSeries.forEach(System.out::println);
-
+        List<Serie> series = new ArrayList<>();
+       series = dadosSeries.stream()
+                        .map(d -> new Serie(d))
+                                .collect(Collectors.toList());
+series.stream()
+        .sorted(Comparator.comparing(Serie::getGenero))
+        .forEach(System.out::println);
     }
 
     private void buscarSerieWeb () {

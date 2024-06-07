@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.module;
+package br.com.alura.screenmatch.model;
 
 import br.com.alura.screenmatch.model.DadosEpisodio;
 
