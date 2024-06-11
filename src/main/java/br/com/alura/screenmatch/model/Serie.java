@@ -1,6 +1,5 @@
 package br.com.alura.screenmatch.model;
 
-import br.com.alura.screenmatch.service.ConsultaLibreTranslate;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -25,6 +24,7 @@ public class Serie {
 
     @Transient
     private List<Episodio> episodios = new ArrayList<>();
+    public Serie() {}
     public Serie(DadosSerie dadosSerie){
         this.titulo = dadosSerie.titulo();
         this.totalTemporadas = dadosSerie.totalTemporadas();
@@ -33,7 +33,7 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = ConsultaLibreTranslate.obterTraducao(dadosSerie.sinopse()).trim();
+        this.sinopse = dadosSerie.sinopse();
     }
 
     public List<Episodio> getEpisodios() {

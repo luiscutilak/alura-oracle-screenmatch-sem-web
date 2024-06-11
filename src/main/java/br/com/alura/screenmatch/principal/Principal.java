@@ -78,33 +78,30 @@ public class Principal {
 
     private void listarSeriesBuscadas() {
 
-        List<Serie> series = new ArrayList<>();
-       series = dadosSeries.stream()
-                        .map(d -> new Serie(d))
-                                .collect(Collectors.toList());
-series.stream()
-        .sorted(Comparator.comparing(Serie::getGenero))
-        .forEach(System.out::println);
+        List<Serie> series = repositorio.findAll();
+        series.stream()
+                .sorted(Comparator.comparing(Serie::getGenero))
+                .forEach(System.out::println);
     }
 
     private void buscarSerieWeb () {
 
-            DadosSerie dados = getDadosSerie();
-            Serie serie = new Serie(dados);
-            repositorio.save(serie);
+        DadosSerie dados = getDadosSerie();
+        Serie serie = new Serie(dados);
+        repositorio.save(serie);
 //            dadosSeries.add(dados);
-            System.out.println(dados);
-        }
+        System.out.println(dados);
+    }
 
-        private DadosSerie getDadosSerie () {
+    private DadosSerie getDadosSerie () {
 
-            System.out.println("Digite o nome da série para busca:");
+        System.out.println("Digite o nome da série para busca:");
 
-            var nomeSerie = leitura.nextLine();
-            var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + API_KEY);
-            DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-            return dados;
-        }
+        var nomeSerie = leitura.nextLine();
+        var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + API_KEY);
+        DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+        return dados;
+    }
 
 //            for (int i = 1; i <= dados.totalTemporadas(); i++) {
 //                json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + "&season=" + i + API_KEY);
