@@ -16,8 +16,12 @@ public class Episodio {
     private String titulo;
     private Integer numeroEpisodio;
     private Double avaliacao;
+    private LocalDate dataLancamento;
+
     @ManyToOne
     private Serie serie;
+
+    public Episodio(){}
 
     public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
         this.temporada = numeroTemporada;
@@ -92,7 +96,6 @@ public class Episodio {
         this.dataLancamento = dataLancamento;
     }
 
-    private LocalDate dataLancamento;
 
     @Override
     public String toString() {

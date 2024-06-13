@@ -22,9 +22,9 @@ public class Principal {
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=298daf7";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
-    @Autowired
     private SerieRepository repositorio;
     private List<Serie> series = new ArrayList<>();
+//    private List<DadosSerie> dadosSeries = new ArrayList<>();
     public Principal(SerieRepository repositorio) {
         this.repositorio = repositorio;
     }
@@ -67,7 +67,7 @@ public class Principal {
 
     private void buscarEpisodioPorSerie() {
         listarSeriesBuscadas();
-        System.out.println("Digite uma série pelo nome: ");
+        System.out.println("Escolha uma série pelo nome: ");
         var nomeSerie = leitura.nextLine();
 
         Optional<Serie> serie = series.stream()
@@ -100,7 +100,7 @@ public class Principal {
 
     private void listarSeriesBuscadas() {
 
-        List<Serie> series = repositorio.findAll();
+        series = repositorio.findAll();
         series.stream()
                 .sorted(Comparator.comparing(Serie::getGenero))
                 .forEach(System.out::println);
