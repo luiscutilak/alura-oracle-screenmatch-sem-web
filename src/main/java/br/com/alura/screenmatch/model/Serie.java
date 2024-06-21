@@ -15,7 +15,7 @@ public class Serie {
     @Column(unique = true)
     private String titulo;
     private Integer totalTemporadas;
-    private String avaliacao;
+    private Double avaliacao;
     @Enumerated(EnumType.STRING)
     private Categoria genero;
     private String atores;
@@ -28,7 +28,7 @@ public class Serie {
     public Serie(DadosSerie dadosSerie){
         this.titulo = dadosSerie.titulo();
         this.totalTemporadas = dadosSerie.totalTemporadas();
-        this.avaliacao = String.valueOf(OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0));
+        this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0);
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
@@ -69,11 +69,11 @@ public class Serie {
         this.totalTemporadas = totalTemporadas;
     }
 
-    public String getAvaliacao() {
+    public double getAvaliacao() {
         return avaliacao;
     }
 
-    public void setAvaliacao(String avaliacao) {
+    public void setAvaliacao(Double avaliacao) {
         this.avaliacao = avaliacao;
     }
 
