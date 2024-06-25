@@ -56,11 +56,11 @@ public class Episodio {
         this.serie = serie;
     }
 
-    public Integer getTemporada() {
+    public int getTemporada() {
         return temporada;
     }
 
-    public void setTemporada(Integer temporada) {
+    public void setTemporada(int temporada) {
         this.temporada = temporada;
     }
 
@@ -72,19 +72,19 @@ public class Episodio {
         this.titulo = titulo;
     }
 
-    public Integer getNumeroEpisodio() {
+    public int getNumeroEpisodio() {
         return numeroEpisodio;
     }
 
-    public void setNumeroEpisodio(Integer numeroEpisodio) {
+    public void setNumeroEpisodio(int numeroEpisodio) {
         this.numeroEpisodio = numeroEpisodio;
     }
 
-    public Double getAvaliacao() {
+    public double getAvaliacao() {
         return avaliacao;
     }
 
-    public void setAvaliacao(Double avaliacao) {
+    public void setAvaliacao(double avaliacao) {
         this.avaliacao = avaliacao;
     }
 
