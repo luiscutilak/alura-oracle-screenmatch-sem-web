@@ -12,9 +12,11 @@ public class Episodio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer temporada;
+    private int temporada;
+
+    private int numeroEpisodio;
     private String titulo;
-    private Integer numeroEpisodio;
+
     private Double avaliacao;
     private LocalDate dataLancamento;
 
@@ -23,10 +25,11 @@ public class Episodio {
 
     public Episodio(){}
 
-    public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
+    public Episodio(int numeroTemporada, DadosEpisodio dadosEpisodio) {
         this.temporada = numeroTemporada;
-        this.titulo = dadosEpisodio.titulo();
         this.numeroEpisodio = dadosEpisodio.numero();
+        this.titulo = dadosEpisodio.titulo();
+
 
         try {
             this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
